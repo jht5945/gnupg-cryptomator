@@ -50,6 +50,7 @@ public class GnuPGAccessProvider implements KeychainAccessProvider {
 
     @Override
     public void storePassphrase(String vault, String name, CharSequence password) throws KeychainAccessException {
+        LOG.info("Store password for: " + vault + " / " + name);
         Utils.storePassword(gnuPGConfig, vault, name, password);
     }
 
@@ -61,21 +62,19 @@ public class GnuPGAccessProvider implements KeychainAccessProvider {
 
     @Override
     public void deletePassphrase(String vault) throws KeychainAccessException {
-        if (isLocked()) {
-            LOG.info("Failed to delete password. KeePassXC database is locked. Needs to be unlocked first.");
-            return;
-        }
+        LOG.info("Delete password for: " + vault);
         Utils.deletePassword(gnuPGConfig, vault);
     }
 
     @Override
     public void changePassphrase(String vault, CharSequence password) throws KeychainAccessException {
+        LOG.info("Change password for: " + vault);
         changePassphrase(vault, "Vault", password);
     }
 
     @Override
     public void changePassphrase(String vault, String name, CharSequence password) throws KeychainAccessException {
-        LOG.info("Change password for: " + vault);
+        LOG.info("Change password for: " + vault + " / " + name);
         Utils.storePassword(gnuPGConfig, vault, name, password);
     }
 }
