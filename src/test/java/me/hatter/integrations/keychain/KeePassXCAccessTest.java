@@ -1,4 +1,4 @@
-package org.purejava.integrations.keychain;
+package me.hatter.integrations.keychain;
 
 import org.junit.jupiter.api.Test;
 

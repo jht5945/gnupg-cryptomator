@@ -1,0 +1,7 @@
+{
+    "java": "17",
+    "builder": {
+        "name": "maven",
+        "version": "3.8.4"
+    }
+}

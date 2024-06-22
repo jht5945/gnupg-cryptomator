@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.purejava</groupId>
-  <artifactId>keepassxc-cryptomator</artifactId>
-  <version>1.2.6-SNAPSHOT</version>
+  <groupId>me.hatter</groupId>
+  <artifactId>gnupg-cryptomator</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
-  <name>keepassxc-cryptomator</name>
-  <description>Plug-in for Cryptomator to store vault passwords in KeePassXC</description>
-  <url>https://github.com/purejava/keepassxc-cryptomator/</url>
+  <name>gnupg-cryptomator</name>
+  <description>Plug-in for Cryptomator to store vault passwords with GnuPG encryption.</description>
+  <url>https://github.com/jht5945/gnupg-cryptomator/</url>
 
   <licenses>
     <license>
@@ -26,12 +26,19 @@
       <organization/>
       <organizationUrl>https://github.com/purejava</organizationUrl>
     </developer>
+    <developer>
+      <name>Hatter Jiang</name>
+      <email>jht5945@gmail.com</email>
+      <timezone>+8</timezone>
+      <organization/>
+      <organizationUrl>https://github.com/jht5945</organizationUrl>
+    </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:purejava/keepassxc-cryptomator.git</connection>
-    <developerConnection>scm:git:git@github.com:purejava/keepassxc-cryptomator.git</developerConnection>
-    <url>git@github.com:purejava/keepassxc-cryptomator.git</url>
+    <connection>scm:git:git@github.com:jht5945/gnupg-cryptomator.git</connection>
+    <developerConnection>scm:git:git@github.com:jht5945/gnupg-cryptomator.git</developerConnection>
+    <url>git@github.com:jht5945/gnupg-cryptomator.git</url>
   </scm>
 
   <distributionManagement>
@@ -52,6 +59,7 @@
     <api.version>1.3.1</api.version>
     <keepassxc-proxy.version>1.2.5</keepassxc-proxy.version>
     <guava.version>33.2.1-jre</guava.version>
+    <gson.version>2.11.0</gson.version>
     <slf4j.version>2.0.13</slf4j.version>
     <junit.version>5.10.2</junit.version>
   </properties>
@@ -77,6 +85,11 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.purejava</groupId>

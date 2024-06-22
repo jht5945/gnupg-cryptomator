@@ -1,24 +1,44 @@
-# keepassxc-cryptomator
-![keepassxc-cryptomator](keepassxc-cryptomator.svg)
+# gnupg-cryptomator
 
-[![Java CI with Maven](https://github.com/purejava/keepassxc-cryptomator/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/purejava/keepassxc-cryptomator/actions?query=workflow%3A%22Java+CI+with+Maven%22)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f092de6bfd99450f8a9a2766ed01c3c1)](https://app.codacy.com/gh/purejava/keepassxc-cryptomator?utm_source=github.com&utm_medium=referral&utm_content=purejava/keepassxc-cryptomator&utm_campaign=Badge_Grade_Settings)
+> This project is fork from https://github.com/purejava/keepassxc-cryptomator , add GnuPG support
+
 [![GitHub Release](https://img.shields.io/github/v/release/purejava/keepassxc-cryptomator)](https://github.com/purejava/keepassxc-cryptomator/releases)
 [![License](https://img.shields.io/github/license/purejava/keepassxc-cryptomator.svg)](https://github.com/purejava/keepassxc-cryptomator/blob/master/LICENSE)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=XVX9ZM7WE4ANL)
 
-Plug-in for Cryptomator to store vault passwords in KeePassXC
+Plug-in for Cryptomator to store vault passwords with GnuPG encryption.
+
+# Build Project
+
+Requirement:
+
+* JDK 17 or later
+* Maven 3.8.4 or later
+
+```shell
+mvn package
+```
+
+Copy plugin in `target/gnupg-cryptomator-1.0.0-SNAPSHOT.jar` to Cryptomator plugins dir.
+> Usage reference [Wiki](https://github.com/purejava/keepassxc-cryptomator/wiki)
+
+# Configuration
+
+Config file location:
+
+* `/etc/cryptomator/config.json`
+* `~/.config/cryptomator/config.json`
+
+Keys will store in directory:
+`~/.config/cryptomator/keys/`
 
 # Documentation
+
 For documentation please take a look at the [Wiki](https://github.com/purejava/keepassxc-cryptomator/wiki).
 
-# Donation
-If you like this project, you can give me a cup of coffee :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=XVX9ZM7WE4ANL)
-
 # Copyright
+
 Copyright (C) 2021-2024 Ralph Plawetzki
+Copyright (C) 2024-2024 Hatter Jiang
 
 The Cryptomator logo is Copyright (C) of https://cryptomator.org/
 
