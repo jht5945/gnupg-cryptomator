@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.hatter</groupId>
     <artifactId>gnupg-cryptomator</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>gnupg-cryptomator</name>
     <description>Plug-in for Cryptomator to store vault passwords with GnuPG encryption.</description>
