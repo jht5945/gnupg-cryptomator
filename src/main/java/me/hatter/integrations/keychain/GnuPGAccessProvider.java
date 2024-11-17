@@ -56,6 +56,7 @@ public class GnuPGAccessProvider implements KeychainAccessProvider {
 
     @Override
     public char[] loadPassphrase(String vault) throws KeychainAccessException {
+        LOG.info("Load password for: " + vault);
         final String password = Utils.loadPassword(gnuPGConfig, vault);
         return password.toCharArray();
     }

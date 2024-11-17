@@ -24,6 +24,26 @@ public class Utils {
     private static final File GNUPG_CONFIG_FILE2 = new File(USER_HOME, ".config/cryptomator/config.json");
     private static final File DEFAULT_ENCRYPTION_KEY_BASE_PATH = new File(USER_HOME, ".config/cryptomator/keys/");
 
+    public static boolean isCheckPassphraseStored() {
+        final StackTraceElement stack = getCallerStackTrace();
+        if (stack != null) {
+            return "isPassphraseStored".equals(stack.getMethodName());
+        }
+        return false;
+    }
+
+    public static StackTraceElement getCallerStackTrace() {
+        // org.cryptomator.common.keychain.KeychainManager :: isPassphraseStored
+        final StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        for (int i = 0; i < stackTraceElements.length; i++) {
+            final StackTraceElement stack = stackTraceElements[i];
+            if ("org.cryptomator.common.keychain.KeychainManager".equals(stack.getClassName())) {
+                return stack;
+            }
+        }
+        return null;
+    }
+
     public static boolean checkGnuPGReady(GnuPGConfig gnuPGConfig) {
         if (gnuPGConfig == null) {
             return false;
@@ -65,6 +85,13 @@ public class Utils {
 
     public static String loadPassword(GnuPGConfig gnuPGConfig, String vault) throws KeychainAccessException {
         final File keyFile = getKeyFile(gnuPGConfig, vault);
+        if (isCheckPassphraseStored()) {
+            LOG.info("Check passphrase stored: " + vault + ", exists: " + keyFile.exists());
+            if (keyFile.exists()) {
+                // this is only for check passphrase stored
+                return "123456";
+            }
+        }
         if (!keyFile.isFile()) {
             throw new KeychainAccessException("Password key file: " + keyFile + " not found");
         }
