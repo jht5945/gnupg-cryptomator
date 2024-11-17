@@ -43,6 +43,14 @@ Configure file location:
 
 For documentation please take a look at the [Wiki](https://github.com/purejava/keepassxc-cryptomator/wiki).
 
+Plugin location:
+
+| OS | Default Dir |
+| ---- | ---- |
+| Mac | `~/Library/Application Support/Cryptomator/Plugins` |
+| Linux | `~/.local/share/Cryptomator/plugins` |
+| Windows | `%homepath%\AppData\Roaming\Cryptomator\Plugins` |
+
 # How it works?
 
 This plugin use GnuPG encrypt and decrypt passwords.
